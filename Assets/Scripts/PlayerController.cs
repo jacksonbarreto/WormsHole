@@ -30,16 +30,14 @@ public class PlayerController : MonoBehaviour
         {
             rigidBody.AddForce(0, 0, speed * Time.fixedDeltaTime);
         }
-
-        
         
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            this.rigidBody.AddForce(-lateralForce * Time.fixedDeltaTime, 0, 0);
+            rigidBody.AddForce(-lateralForce * Time.fixedDeltaTime, 0, 0);
             rotationPlayer(targetAngle);
         } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            this.rigidBody.AddForce(lateralForce * Time.fixedDeltaTime, 0, 0);
+            rigidBody.AddForce(lateralForce * Time.fixedDeltaTime, 0, 0);
             rotationPlayer(-targetAngle);
         }
         else

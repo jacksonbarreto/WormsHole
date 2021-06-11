@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
-
-    public Text textScore;
+    private Text textScore;
     public PlayerController player;
+    public GameObject panelCurrentGame;
     public GameObject panelGameOver;
     public GameObject panelVictory;
     public float scoringFactor = 20;
@@ -18,11 +18,25 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        panelCurrentGame.SetActive(true);
         panelGameOver.SetActive(false);
         panelVictory.SetActive(false);
+        selectPanelElements();
         startingPosition = player.transform.position;
         if (scoringFactor <= 0)
             scoringFactor = 20;
+    }
+
+    private void selectPanelElements()
+    {
+        Component[] component = panelCurrentGame.GetComponentsInChildren<Text>();
+        foreach(Text c in component)
+        {
+            if (c.CompareTag("TextScore"))
+            {
+                textScore = c;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -41,9 +55,19 @@ public class GameController : MonoBehaviour
         textScore.text = newScore.ToString("0");
     }
 
+  public void pauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void startGame()
+    {
+        Time.timeScale = 1;
+    }
     public void gameOver()
     {
         panelGameOver.SetActive(true);
+        panelCurrentGame.SetActive(false);
     }
 
     public void restart()
@@ -53,7 +77,7 @@ public class GameController : MonoBehaviour
 
     public void exit()
     {
-
+        Application.Quit();
     }
 
     public void winGame()
