@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     public float speed = 900;
     public float maximumSpeed = 1200;
     public float score;
-
+    private const float targetAngle = 30;
+    private float rotationCoefficient = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +31,30 @@ public class PlayerController : MonoBehaviour
             rigidBody.AddForce(0, 0, speed * Time.fixedDeltaTime);
         }
 
+        
+        
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             this.rigidBody.AddForce(-lateralForce * Time.fixedDeltaTime, 0, 0);
-            Debug.Log(this.lateralForce);
-        }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            rotationPlayer(targetAngle);
+        } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             this.rigidBody.AddForce(lateralForce * Time.fixedDeltaTime, 0, 0);
+            rotationPlayer(-targetAngle);
         }
+        else
+        {
+            rotationPlayer(0);
+        }
+        
+    }
+
+    private void rotationPlayer(float currentTargetAngle)
+    {
+        Quaternion currentRotation = rigidBody.rotation;
+        Quaternion targetRotation = Quaternion.Euler(0, 0, currentTargetAngle);
+        Quaternion newRotation = Quaternion.Lerp(currentRotation, targetRotation, rotationCoefficient * Time.fixedDeltaTime);
+        rigidBody.MoveRotation(newRotation);
     }
 
     private void OnCollisionEnter(Collision collision)
