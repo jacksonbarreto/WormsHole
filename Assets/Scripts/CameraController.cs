@@ -14,7 +14,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = this.player.transform.position + distanceFromPlayer;
-        
+        if(player != null)
+        {
+            this.transform.position = this.player.transform.position + distanceFromPlayer;
+        }
     }
 }

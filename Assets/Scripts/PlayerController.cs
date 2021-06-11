@@ -7,22 +7,28 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rigidBody;
     public GameController gameController;
+    public GameObject ExplosionPrefab;
     public float lateralForce = 3600;
-    public float velocity = 900;
+    public float speed = 900;
+    public float maximumSpeed = 1200;
     public float score;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        this.rigidBody = GetComponent<Rigidbody>();
-        this.rigidBody.useGravity = false;
+        rigidBody = GetComponent<Rigidbody>();
+        rigidBody.useGravity = false; 
      
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.rigidBody.AddForce(0, 0, this.velocity * Time.fixedDeltaTime);
+        if (rigidBody.velocity.z < maximumSpeed)
+        {
+            rigidBody.AddForce(0, 0, speed * Time.fixedDeltaTime);
+        }
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
@@ -39,6 +45,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.collider.CompareTag("Enemy"))
         {
+            GameObject.Instantiate(ExplosionPrefab, this.transform.position, this.transform.rotation);
+            Destroy(this.gameObject);
             gameController.gameOver();
         }
     }
