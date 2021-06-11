@@ -21,4 +21,16 @@ public class AudioController : MonoBehaviour
     {
         audioSourceFX.PlayOneShot(audioClip);
     }
+
+    public void playBackgroundMusic(bool status)
+    {
+        if (status)
+        {
+            backgroundMusic.Play();
+        }
+        else
+        {
+            backgroundMusic.Pause();
+        }
+    }
 }

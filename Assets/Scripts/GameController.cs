@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     public AudioController audioController;
     public AudioClip victorySong;
     private Vector3 startingPosition;
+    private bool pauseStatus = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,13 +58,20 @@ public class GameController : MonoBehaviour
 
   public void pauseGame()
     {
-        Time.timeScale = 0;
+        if (pauseStatus)
+        {
+            Time.timeScale = 1;
+            pauseStatus = false;
+            audioController.playBackgroundMusic(true);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            pauseStatus = true;
+            audioController.playBackgroundMusic(false);
+        }
     }
 
-    public void startGame()
-    {
-        Time.timeScale = 1;
-    }
     public void gameOver()
     {
         panelGameOver.SetActive(true);
