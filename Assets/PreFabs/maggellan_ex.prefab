@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 3987673691961812024}
   m_Layer: 0
   m_Name: maggellan_ex
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,8 +293,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.56, y: 6.05, z: 4.16}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 8.26, y: 4.05, z: 3.85}
+  m_Center: {x: 0, y: 0.24, z: 0}
 --- !u!1 &1577956311297630
 GameObject:
   m_ObjectHideFlags: 0

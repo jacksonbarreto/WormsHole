@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17592797, g: 0.17863405, b: 0.20646372, a: 1}
+  m_IndirectSpecularColor: {r: 0.1560928, g: 0.15950829, b: 0.18505344, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -664,15 +664,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 88507086}
+  victoryThreshold: 900
   panelCurrentGame: {fileID: 142240829}
   panelGameOver: {fileID: 1857943351}
   panelVictory: {fileID: 780851569}
-  segmentLevels:
+  segmentLevelsPrefabs:
   - {fileID: 7125315878930742968, guid: d653cfbe93527e04dbcb4fbc7df6ad7a, type: 3}
   - {fileID: 7125315878930742968, guid: 4a07d3f6168aee841b8d2ed4a72de218, type: 3}
   - {fileID: 7125315878930742968, guid: 93c9f470dd891684d823c46a4b710856, type: 3}
   - {fileID: 7125315878930742968, guid: 02afd9648e3185a45b298aff445bba6b, type: 3}
   startSegmentLevel: {fileID: 12110834}
+  finalSegmentLevelPrefab: {fileID: 2657297703626548999, guid: fbbc91d0e6acea5489f51e2831863413, type: 3}
   scoringFactor: 20
   audioController: {fileID: 2138876702}
   victorySong: {fileID: 8300000, guid: e5d91b363f15c6d46b887df0de3fcd26, type: 3}
@@ -1388,6 +1390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 88507086}
   distanceFromPlayer: {x: 0, y: 6.5, z: -16}
+  rotateSkyboxSpeed: 1.1
 --- !u!81 &1140577585
 AudioListener:
   m_ObjectHideFlags: 0
