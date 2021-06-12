@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 88507086}
-  victoryThreshold: 10
+  victoryThreshold: 20
   panelCurrentGame: {fileID: 142240829}
   panelGameOver: {fileID: 1857943351}
   panelVictory: {fileID: 780851569}
@@ -1991,6 +1991,13 @@ MonoBehaviour:
   audioSourceFX: {fileID: 2138876703}
   audioClips:
   - {fileID: 8300000, guid: 207e96700b4da9247be5f0d3cfde3e85, type: 3}
+  - {fileID: 8300000, guid: 408161359177b594b8633254a03c92b5, type: 3}
+  - {fileID: 8300000, guid: d66d80246eb3e5a47bde40634e380102, type: 3}
+  - {fileID: 8300000, guid: cf4667fb486b8f840b5f9dcdfa402cc9, type: 3}
+  - {fileID: 8300000, guid: 9eb61e1454d8e3a448196c5728f577c5, type: 3}
+  - {fileID: 8300000, guid: 3e09279ffc9100e43af904762a63db6e, type: 3}
+  - {fileID: 8300000, guid: 6be8d66871c6bcd47bd72e0c672cfd78, type: 3}
+  - {fileID: 8300000, guid: 6de6c637318bf2143a09d19f67cc35a7, type: 3}
 --- !u!82 &2138876703
 AudioSource:
   m_ObjectHideFlags: 0
