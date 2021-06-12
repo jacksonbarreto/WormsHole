@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody rigidBody;
+    public Rigidbody rigidBody;
     public GameController gameController;
     public GameObject ExplosionPrefab;
     public float lateralForce = 3600;
     public float speed = 900;
     public float maximumSpeed = 1200;
     public float score;
+    public bool win = false;
     private const float targetAngle = 30;
     private float rotationCoefficient = 5;
 
@@ -19,8 +20,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        rigidBody.useGravity = false; 
-     
+        rigidBody.useGravity = false;     
     }
 
     // Update is called once per frame
@@ -67,7 +67,14 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider trigger)
     {
+        if (trigger.CompareTag("House"))
+        {
+            gameController.winGame();
+        }
+        else
+        {
+            gameController.createSegmentLevels();
+        }
         
-        gameController.createSegmentLevels();
     }
 }

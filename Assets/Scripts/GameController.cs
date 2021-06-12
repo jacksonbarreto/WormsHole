@@ -11,9 +11,11 @@ public class GameController : MonoBehaviour
     public GameObject panelCurrentGame;
     public GameObject panelGameOver;
     public GameObject panelVictory;
+    public victoryAnimation victoryAnimation;
     public GameObject[] segmentLevelsPrefabs;
     public GameObject startSegmentLevel;
     public GameObject finalSegmentLevelPrefab;
+    public GameObject PlanetPrefab;
     private GameObject currentSegmentLevel;
     private GameObject previusSegmentLevel;
     public float scoringFactor = 20;
@@ -51,7 +53,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player != null)
+        if(player != null && !player.win)
         {
             Vector3 travelledDistance = player.transform.position - startingPosition;
             player.score = travelledDistance.z / scoringFactor;
@@ -99,9 +101,15 @@ public class GameController : MonoBehaviour
 
     public void winGame()
     {
+        player.win = true;
+        panelCurrentGame.SetActive(false);
+        Destroy(currentSegmentLevel);
+        victoryAnimation.winAnimation();
         audioController.playAudioSFX(victorySong);
         panelVictory.SetActive(true);
     }
+
+   
 
     public void createSegmentLevels()
     {
@@ -111,6 +119,7 @@ public class GameController : MonoBehaviour
         if (player.score > victoryThreshold)
         {
             nextSegmentPrefab = finalSegmentLevelPrefab;
+            GameObject.Instantiate(PlanetPrefab);
         }
         else
         {

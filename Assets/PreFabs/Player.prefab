@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4460957310854185190}
   - component: {fileID: 4460957310854185188}
   - component: {fileID: 4460957310854185191}
+  - component: {fileID: 646250636694122578}
   - component: {fileID: 4460957310854185208}
   - component: {fileID: 4460957310854185209}
   - component: {fileID: 4460957310854185211}
@@ -63,8 +64,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e345bb61acb316f42a9836d57e393303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidBody: {fileID: 0}
+  gameController: {fileID: 0}
+  ExplosionPrefab: {fileID: 0}
   lateralForce: 3600
-  velocity: 900
+  speed: 900
+  maximumSpeed: 1200
+  score: 0
+--- !u!114 &646250636694122578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4460957310854185189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e435f5e50fa494c88d34661a05ca22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4460957310854185191}
+  planet: {fileID: 0}
 --- !u!23 &4460957310854185208
 MeshRenderer:
   m_ObjectHideFlags: 0

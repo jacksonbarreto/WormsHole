@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1560928, g: 0.15950829, b: 0.18505344, a: 1}
+  m_IndirectSpecularColor: {r: 0.12892744, g: 0.13454372, b: 0.15734181, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 142240832}
   - component: {fileID: 142240831}
   m_Layer: 5
-  m_Name: Panel_Current_Game
+  m_Name: Panel_CurrentGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,6 +428,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187142035}
   m_CullTransparentMesh: 1
+--- !u!114 &267961189 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 646250636694122578, guid: 87b7820d0c3f44246a64bcc59e3e4c0d, type: 3}
+  m_PrefabInstance: {fileID: 4460957310774395433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e435f5e50fa494c88d34661a05ca22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &278976705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -664,17 +675,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 88507086}
-  victoryThreshold: 900
+  victoryThreshold: 10
   panelCurrentGame: {fileID: 142240829}
   panelGameOver: {fileID: 1857943351}
   panelVictory: {fileID: 780851569}
+  victoryAnimation: {fileID: 267961189}
   segmentLevelsPrefabs:
   - {fileID: 7125315878930742968, guid: d653cfbe93527e04dbcb4fbc7df6ad7a, type: 3}
   - {fileID: 7125315878930742968, guid: 4a07d3f6168aee841b8d2ed4a72de218, type: 3}
   - {fileID: 7125315878930742968, guid: 93c9f470dd891684d823c46a4b710856, type: 3}
   - {fileID: 7125315878930742968, guid: 02afd9648e3185a45b298aff445bba6b, type: 3}
   startSegmentLevel: {fileID: 12110834}
-  finalSegmentLevelPrefab: {fileID: 2657297703626548999, guid: fbbc91d0e6acea5489f51e2831863413, type: 3}
+  finalSegmentLevelPrefab: {fileID: 8840923562029544909, guid: 901b5787c76ec804db91c21c3be50f0d, type: 3}
+  PlanetPrefab: {fileID: 8709524601034884487, guid: e58453c0d0ed3504b809466109f4e038, type: 3}
   scoringFactor: 20
   audioController: {fileID: 2138876702}
   victorySong: {fileID: 8300000, guid: e5d91b363f15c6d46b887df0de3fcd26, type: 3}
@@ -837,7 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24905658, g: 1, b: 0.37025264, a: 0.392}
+  m_Color: {r: 0.48490566, g: 1, b: 0.5658105, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -977,7 +990,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -44}
+  m_AnchoredPosition: {x: -300, y: -200}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1010816964
@@ -1255,7 +1268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -434.18677, y: 236.31526}
+  m_AnchoredPosition: {x: -410, y: 214}
   m_SizeDelta: {x: 41.6265, y: 27.3695}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1060067189
@@ -1450,7 +1463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140577583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.5, z: -16}
+  m_LocalPosition: {x: 0, y: 5, z: -18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1122605206}
@@ -2316,6 +2329,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2657297704522884777, guid: fbbc91d0e6acea5489f51e2831863413, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3901693958627840848, guid: fbbc91d0e6acea5489f51e2831863413, type: 3}
       propertyPath: m_LocalPosition.x
       value: -221
@@ -2329,6 +2346,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 646250636694122578, guid: 87b7820d0c3f44246a64bcc59e3e4c0d, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 646250636694122578, guid: 87b7820d0c3f44246a64bcc59e3e4c0d, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 1140577584}
+    - target: {fileID: 646250636694122578, guid: 87b7820d0c3f44246a64bcc59e3e4c0d, type: 3}
+      propertyPath: speedTowardPlanet
+      value: 30000
+      objectReference: {fileID: 0}
     - target: {fileID: 4460957310854185189, guid: 87b7820d0c3f44246a64bcc59e3e4c0d, type: 3}
       propertyPath: m_Name
       value: Player
