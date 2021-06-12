@@ -65,4 +65,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider trigger)
+    {
+        
+        gameController.createSegmentLevels();
+    }
 }

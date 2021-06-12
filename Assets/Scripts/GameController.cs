@@ -10,11 +10,16 @@ public class GameController : MonoBehaviour
     public GameObject panelCurrentGame;
     public GameObject panelGameOver;
     public GameObject panelVictory;
+    public GameObject[] segmentLevels;
+    public GameObject startSegmentLevel;
+    private GameObject currentSegmentLevel;
+    private GameObject previusSegmentLevel;
     public float scoringFactor = 20;
     public AudioController audioController;
     public AudioClip victorySong;
     private Vector3 startingPosition;
     private bool pauseStatus = false;
+    private float segmentSize = 900;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,7 @@ public class GameController : MonoBehaviour
         startingPosition = player.transform.position;
         if (scoringFactor <= 0)
             scoringFactor = 20;
+        currentSegmentLevel = startSegmentLevel;
     }
 
     private void selectPanelElements()
@@ -48,6 +54,7 @@ public class GameController : MonoBehaviour
             Vector3 travelledDistance = player.transform.position - startingPosition;
             player.score = travelledDistance.z / scoringFactor;
             updateTextScore(player.score);
+            destroyPreviousSegment();
         }
     }
 
@@ -92,5 +99,22 @@ public class GameController : MonoBehaviour
     {
         audioController.playAudioSFX(victorySong);
         panelVictory.SetActive(true);
+    }
+
+    public void createSegmentLevels()
+    {
+        Vector3 nextPosition = currentSegmentLevel.transform.position + new Vector3(0, 0, segmentSize);
+        int indexSegmentsPrefab = Random.Range(0, segmentLevels.Length);
+        GameObject nextSegmentPrefab = segmentLevels[indexSegmentsPrefab];
+        previusSegmentLevel = currentSegmentLevel;
+        currentSegmentLevel = GameObject.Instantiate(nextSegmentPrefab, nextPosition, currentSegmentLevel.transform.rotation);
+    }
+
+    private void destroyPreviousSegment()
+    {
+        if (previusSegmentLevel != null && player.transform.position.z > previusSegmentLevel.transform.position.z + segmentSize)
+        {
+            Destroy(previusSegmentLevel);
+        }
     }
 }
