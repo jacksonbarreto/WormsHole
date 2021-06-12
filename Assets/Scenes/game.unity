@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12892744, g: 0.13454372, b: 0.15734181, a: 1}
+  m_IndirectSpecularColor: {r: 0.15363818, g: 0.15747356, b: 0.18281692, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 88507086}
-  victoryThreshold: 20
+  victoryThreshold: 100
   panelCurrentGame: {fileID: 142240829}
   panelGameOver: {fileID: 1857943351}
   panelVictory: {fileID: 780851569}

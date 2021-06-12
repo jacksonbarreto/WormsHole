@@ -35,3 +35,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Designs/Skybox/Skybox.mat
+Assets/Scenes/game.unity
+Logs/AssetImportWorker0-prev.log
+Logs/AssetImportWorker0.log
