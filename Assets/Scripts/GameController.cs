@@ -7,11 +7,13 @@ public class GameController : MonoBehaviour
 {
     private Text textScore;
     public PlayerController player;
+    public int victoryThreshold = 900;
     public GameObject panelCurrentGame;
     public GameObject panelGameOver;
     public GameObject panelVictory;
-    public GameObject[] segmentLevels;
+    public GameObject[] segmentLevelsPrefabs;
     public GameObject startSegmentLevel;
+    public GameObject finalSegmentLevelPrefab;
     private GameObject currentSegmentLevel;
     private GameObject previusSegmentLevel;
     public float scoringFactor = 20;
@@ -104,8 +106,16 @@ public class GameController : MonoBehaviour
     public void createSegmentLevels()
     {
         Vector3 nextPosition = currentSegmentLevel.transform.position + new Vector3(0, 0, segmentSize);
-        int indexSegmentsPrefab = Random.Range(0, segmentLevels.Length);
-        GameObject nextSegmentPrefab = segmentLevels[indexSegmentsPrefab];
+        int indexSegmentsPrefab = Random.Range(0, segmentLevelsPrefabs.Length);
+        GameObject nextSegmentPrefab;
+        if (player.score > victoryThreshold)
+        {
+            nextSegmentPrefab = finalSegmentLevelPrefab;
+        }
+        else
+        {
+            nextSegmentPrefab = segmentLevelsPrefabs[indexSegmentsPrefab];
+        }
         previusSegmentLevel = currentSegmentLevel;
         currentSegmentLevel = GameObject.Instantiate(nextSegmentPrefab, nextPosition, currentSegmentLevel.transform.rotation);
     }
