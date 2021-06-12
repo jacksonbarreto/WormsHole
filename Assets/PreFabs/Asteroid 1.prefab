@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 494976}
   - component: {fileID: 5444550}
   - component: {fileID: 11425652}
+  - component: {fileID: 4431882795877751638}
   m_Layer: 0
   m_Name: Asteroid 1
   m_TagString: Enemy
@@ -285,6 +286,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 0.25
+--- !u!136 &4431882795877751638
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.94
+  m_Height: 0
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.13, z: 0}
 --- !u!1 &176588
 GameObject:
   m_ObjectHideFlags: 0
